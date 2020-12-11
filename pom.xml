@@ -76,12 +76,14 @@
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
-            <!--<scope>provided</scope>-->
+            <!-- provided代表由容器提供 -->
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+            <!-- optional 代表不会进行依赖传递，parent是继承不是传递依赖 -->
             <optional>true</optional>
         </dependency>
         <dependency>

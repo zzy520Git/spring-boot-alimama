@@ -31,4 +31,9 @@ public class AliResult<T> implements Serializable {
      */
     private T data;
 
+    public static <T> AliResult<T> success(T data) {
+        return new AliResult<T>().setSuccess(true).setCode("200")
+                .setData(data);
+    }
+
 }
