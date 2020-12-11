@@ -6,6 +6,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>spring-boot-common</module>
+        <module>spring-boot-start</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -54,7 +55,6 @@
 
         <pluginManagement>
             <plugins>
-
                 <!-- 打包源码插件 -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -79,6 +79,9 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <jvmArguments>-Dfile.encoding=UTF-8</jvmArguments>
+                </configuration>
             </plugin>
 
             <plugin>
@@ -112,5 +115,35 @@
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <!-- 开发环境 -->
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <profile.environment>dev</profile.environment>
+                <profile.log.level>debug</profile.log.level>
+            </properties>
+        </profile>
+        <!-- 测试环境 -->
+        <profile>
+            <id>test</id>
+            <properties>
+                <profile.environment>test</profile.environment>
+                <profile.log.level>info</profile.log.level>
+            </properties>
+        </profile>
+        <!-- 生产环境 -->
+        <profile>
+            <id>production</id>
+            <properties>
+                <profile.environment>production</profile.environment>
+                <profile.log.level>warn</profile.log.level>
+            </properties>
+        </profile>
+    </profiles>
 
 </project>
