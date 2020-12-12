@@ -3,6 +3,7 @@ package notes.start.controller;
 import lombok.extern.slf4j.Slf4j;
 import notes.common.AliResult;
 import notes.common.pojo.Student;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,6 +20,8 @@ import javax.servlet.http.HttpServletResponse;
 @RestController
 @RequestMapping
 public class HomeController {
+    @Value("${jdbc.password}")
+    private String pwd;
 
     @RequestMapping("alive")
     public AliResult alive() {
@@ -32,6 +35,6 @@ public class HomeController {
     public AliResult<Student> getUserInfo(HttpServletRequest request,
                                           HttpServletResponse response) {
         Student stu = new Student().setName("牛市").setAge(18);
-        return AliResult.success(stu);
+        return AliResult.success(stu).setMsg(pwd);
     }
 }
