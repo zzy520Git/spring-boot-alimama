@@ -11,5 +11,15 @@
 
     <artifactId>spring-boot-common</artifactId>
 
+    <build>
+        <plugins>
+            <!-- 打包源码插件 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
 
 </project>
