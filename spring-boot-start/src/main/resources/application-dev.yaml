@@ -1,0 +1,12 @@
+spring:
+  jackson:
+    # 输出，对java8-LocalDate等无效
+    date-format: yyyy-MM-dd HH:mm:ss
+  mvc:
+    # 输入
+    date-format: yyyy-MM-dd HH:mm:ss
+  datasource:
+    username: root
+    password:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/zzy?useUnicode=true&charactorEncoding=utf-8
