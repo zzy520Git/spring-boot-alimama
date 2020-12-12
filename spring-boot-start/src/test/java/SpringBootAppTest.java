@@ -12,12 +12,9 @@ import javax.sql.DataSource;
  */
 @SpringBootTest
 public class SpringBootAppTest {
-    @Autowired
-    private DataSource dataSource;
 
     @Test
     public void contextLoad() {
-        System.out.println(dataSource.getClass());
         System.out.println("hello");
     }
 }

@@ -75,13 +75,6 @@
             <artifactId>aspectjweaver</artifactId>
         </dependency>
 
-        <!-- <mysql.version>8.0.18</mysql.version> -->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
