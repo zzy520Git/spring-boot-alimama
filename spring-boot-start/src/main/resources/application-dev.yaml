@@ -5,4 +5,3 @@ spring:
   mvc:
     # 输入
     date-format: yyyy-MM-dd HH:mm:ss
-

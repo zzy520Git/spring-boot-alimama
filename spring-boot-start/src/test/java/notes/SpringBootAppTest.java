@@ -1,8 +1,7 @@
-import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
+package notes;
 
-import javax.sql.DataSource;
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
 /**
  * Description:
@@ -12,7 +11,6 @@ import javax.sql.DataSource;
  */
 @SpringBootTest
 public class SpringBootAppTest {
-
     @Test
     public void contextLoad() {
         System.out.println("hello");
