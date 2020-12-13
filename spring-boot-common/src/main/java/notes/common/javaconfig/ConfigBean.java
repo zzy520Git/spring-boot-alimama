@@ -1,7 +1,5 @@
 package notes.common.javaconfig;
 
-import notes.common.bean.Test;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -13,8 +11,4 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ConfigBean {
 
-    @Bean
-    public Test test() {
-        return new Test();
-    }
 }
