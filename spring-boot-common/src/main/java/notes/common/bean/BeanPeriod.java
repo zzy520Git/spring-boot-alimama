@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 public class BeanPeriod {
 
     public BeanPeriod() {
-        log.info("BeanPeriod进行构造函数");
+        log.warn("BeanPeriod进行构造函数");
     }
 
 }
