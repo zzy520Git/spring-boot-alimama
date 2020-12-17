@@ -24,6 +24,12 @@
     <description>Demo project for Spring Boot</description>
 
     <properties>
+        <tddl-spring-boot-starter.version>5.2.6</tddl-spring-boot-starter.version>
+        <tair-spring-boot-starter.version>2.2.29</tair-spring-boot-starter.version>
+        <alimonitor-spring-boot-starter.version>1.0.4</alimonitor-spring-boot-starter.version>
+        <diamond-spring-boot-starter.version>1.2.6</diamond-spring-boot-starter.version>
+        <spring-boot-starter-hsf.version>2.2.4.9.5-REGION</spring-boot-starter-hsf.version>
+
         <commons-collections4.version>4.1</commons-collections4.version>
         <alibaba.fastjson>1.2.47</alibaba.fastjson>
         <!-- 以下存在默认值 -->
@@ -54,6 +60,32 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.aliexpress.boot</groupId>
+            <artifactId>spring-boot-starter-hsf</artifactId>
+            <version>${spring-boot-starter-hsf.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.boot</groupId>
+            <artifactId>alimonitor-spring-boot-starter</artifactId>
+            <version>${alimonitor-spring-boot-starter.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.boot</groupId>
+            <artifactId>diamond-spring-boot-starter</artifactId>
+            <version>${diamond-spring-boot-starter.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.boot</groupId>
+            <artifactId>tddl-spring-boot-starter</artifactId>
+            <version>${tddl-spring-boot-starter.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.boot</groupId>
+            <artifactId>tair-spring-boot-starter</artifactId>
+            <version>${tair-spring-boot-starter.version}</version>
         </dependency>
 
         <!-- 自动配置代码提示 -->
@@ -164,6 +196,8 @@
                     <mainClass>notes.SpringBootApp</mainClass>
                     <skip>true</skip>
                     <jvmArguments>-Dfile.encoding=UTF-8</jvmArguments>
+                    <!-- do not enable it, this will create a non standard jar and cause autoconfig to fail -->
+                    <executable>false</executable>
                 </configuration>
                 <executions>
                     <execution>
