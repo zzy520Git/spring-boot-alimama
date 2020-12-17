@@ -164,6 +164,8 @@
                     <mainClass>notes.SpringBootApp</mainClass>
                     <skip>true</skip>
                     <jvmArguments>-Dfile.encoding=UTF-8</jvmArguments>
+                    <!-- do not enable it, this will create a non standard jar and cause autoconfig to fail -->
+                    <executable>false</executable>
                 </configuration>
                 <executions>
                     <execution>

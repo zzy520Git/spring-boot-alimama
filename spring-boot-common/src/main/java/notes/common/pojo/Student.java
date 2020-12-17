@@ -26,4 +26,9 @@ public class Student {
      * 年龄
      */
     private Integer age;
+
+    public Student() {
+        log.info("Student开始构造函数");
+        this.age = 18;
+    }
 }
