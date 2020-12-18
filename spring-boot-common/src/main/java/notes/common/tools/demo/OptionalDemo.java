@@ -18,7 +18,7 @@ import java.util.Random;
  * @author zhouzhongyi
  * @date 2020/12/16
  */
-public class OptionalUtilsDemo {
+public class OptionalDemo {
     public static void main(String[] args) {
         op();
     }
