@@ -12,9 +12,30 @@ org.springframework.aop.config.internalAutoProxyCreator
  */
 DefaultListableBeanFactory => beanDefinitionMap
     AbstractAutowireCapableBeanFactory => allowCircularReferences
-        AbstractBeanFactory
+        AbstractBeanFactory => parentBeanFactory
+                            => getBean()
+                                => AbstractBeanFactory.doGetBean()
+                                    => DefaultSingletonBeanRegistry.getSingleton()
+                                        => singletonFactory.getObject()
+                                            => AbstractAutowireCapableBeanFactory.createBean()
+                                                //InstantiationAwareBeanPostProcessor
+                                                // Give BeanPostProcessors a chance to return a proxy instead of the target bean instance.
+                                                => resolveBeforeInstantiation(beanName, mbdToUse); or
+                                                => AbstractAutowireCapableBeanFactory.doCreateBean()
+                                                    => DefaultSingletonBeanRegistry.addSingletonFactory(getEarlyBeanReference())
+                                                    => AbstractAutowireCapableBeanFactory.populateBean
+                                                    => AbstractAutowireCapableBeanFactory.initializeBean
+                                                    => DefaultSingletonBeanRegistry.getSingleton(beanName, false)
+                                                    => AbstractBeanFactory.registerDisposableBeanIfNecessary
             FactoryBeanRegistrySupport
-                DefaultSingletonBeanRegistry
+                DefaultSingletonBeanRegistry => Map<String, Object> singletonObjects
+                                             => Map<String, ObjectFactory<?>> singletonFactories
+                                             => Map<String, Object> earlySingletonObjects
+                                             => Set<String> singletonsCurrentlyInCreation
+                                             => LinkedHashSet<String> registeredSingletons
+                                             => ConcurrentHashMap<String, Set<String>> containedBeanMap
+                                             => ConcurrentHashMap<String, Set<String>> dependentBeanMap
+                                             => ConcurrentHashMap<String, Set<String>> dependenciesForBeanMap
                     impl SingletonBeanRegistry
             impl ConfigurableBeanFactory
                 extends HierarchicalBeanFactory
@@ -45,6 +66,11 @@ AnnotationConfigApplicationContext => AnnotatedBeanDefinitionReader reader
                                    => ResourcePatternResolver
                                    => beanFactoryPostProcessors
                                    => ConfigurableEnvironment
+
+                                   => getBean()
+                                    => AbstractBeanFactory.getBean()
+                                        => AbstractBeanFactory.doGetBean()
+                                            => DefaultSingletonBeanRegistry.getSingleton()
             DefaultResourceLoader
             impl ConfigurableApplicationContext
                 extends ApplicationContext
