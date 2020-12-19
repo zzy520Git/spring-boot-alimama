@@ -1,0 +1,10 @@
+
+/**
+ * extends代表接口继承
+ * impl 代表实现
+ * - 代表class
+ */
+
+BeanFactoryPostProcessor
+    BeanDefinitionRegistryPostProcessor
+        - ConfigurationClassPostProcessor

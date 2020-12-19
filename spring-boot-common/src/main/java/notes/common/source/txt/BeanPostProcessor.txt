@@ -1,0 +1,26 @@
+
+/**
+ * extends代表接口继承
+ * impl 代表实现
+ * - 代表class
+ */
+
+BeanPostProcessor
+    InstantiationAwareBeanPostProcessor
+        - CommonAnnotationBeanPostProcessor
+        SmartInstantiationAwareBeanPostProcessor
+            - InstantiationAwareBeanPostProcessorAdapter
+                - AutowiredAnnotationBeanPostProcessor
+            - AbstractAutoProxyCreator
+                - AbstractAdvisorAutoProxyCreator
+                    - DefaultAdvisorAutoProxyCreator
+                    - AspectJAwareAdvisorAutoProxyCreator
+                        - AnnotationAwareAspectJAutoProxyCreator
+    MergedBeanDefinitionPostProcessor
+        - InitDestroyAnnotationBeanPostProcessor
+            - CommonAnnotationBeanPostProcessor
+        - AutowiredAnnotationBeanPostProcessor
+    DestructionAwareBeanPostProcessor
+        - InitDestroyAnnotationBeanPostProcessor
+            - CommonAnnotationBeanPostProcessor
+    - ApplicationContextAwareProcessor
