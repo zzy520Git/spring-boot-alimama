@@ -1,0 +1,80 @@
+
+org.springframework.context.annotation.internalConfigurationAnnotationProcessor
+org.springframework.context.annotation.internalAutowiredAnnotationProcessor
+org.springframework.context.annotation.internalCommonAnnotationProcessor
+org.springframework.context.event.internalEventListenerProcessor
+org.springframework.context.event.internalEventListenerFactory
+
+org.springframework.aop.config.internalAutoProxyCreator
+
+DefaultListableBeanFactory
+    AbstractAutowireCapableBeanFactory
+        AbstractBeanFactory
+            FactoryBeanRegistrySupport
+                DefaultSingletonBeanRegistry
+                    impl SingletonBeanRegistry
+            impl ConfigurableBeanFactory
+                extends HierarchicalBeanFactory
+                extends SingletonBeanRegistry
+        impl AutowireCapableBeanFactory
+            extends BeanFactory
+    impl ConfigurableListableBeanFactory
+        extends ListableBeanFactory
+            extends BeanFactory
+        extends AutowireCapableBeanFactory
+            extends BeanFactory
+        extends ConfigurableBeanFactory
+            extends HierarchicalBeanFactory,
+            extends SingletonBeanRegistry
+    impl BeanDefinitionRegistry
+        extends AliasRegistry
+
+-- SpringBoot的ApplicationContext
+AnnotationConfigServletWebServerApplicationContext
+    ServletWebServerApplicationContext
+        GenericWebApplicationContext => servletContext
+            GenericApplicationContext => DefaultListableBeanFactory
+                AbstractApplicationContext => ApplicationContext parent
+                    DefaultResourceLoader
+
+/**
+ * 用于处理以下注解：Autowired，Value，Inject
+ */
+AutowiredAnnotationBeanPostProcessor
+    InstantiationAwareBeanPostProcessorAdapter
+        impl SmartInstantiationAwareBeanPostProcessor
+            extends InstantiationAwareBeanPostProcessor
+                extends BeanPostProcessor
+    impl MergedBeanDefinitionPostProcessor
+        extends BeanPostProcessor
+    impl BeanFactoryAware
+    impl PriorityOrdered
+
+/**
+ * 支持以下注解：PostConstruct，PreDestroy，Resource
+ */
+CommonAnnotationBeanPostProcessor
+    /**
+     * 支持以下注解：InitializingBean，DisposableBean
+     */
+    InitDestroyAnnotationBeanPostProcessor
+        impl MergedBeanDefinitionPostProcessor
+        impl DestructionAwareBeanPostProcessor
+    impl InstantiationAwareBeanPostProcessor
+
+
+/**
+ * AOP
+ */
+AnnotationAwareAspectJAutoProxyCreator
+    AspectJAwareAdvisorAutoProxyCreator
+        AbstractAdvisorAutoProxyCreator
+            AbstractAutoProxyCreator => beanFactory,earlyProxyReferences
+                ProxyProcessorSupport
+                    ProxyConfig
+            impl SmartInstantiationAwareBeanPostProcessor
+
+
+
+
+
