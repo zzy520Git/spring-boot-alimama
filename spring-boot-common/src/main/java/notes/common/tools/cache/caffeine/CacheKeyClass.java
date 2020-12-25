@@ -30,8 +30,8 @@ public class CacheKeyClass implements CacheKey {
         if (obj == null) {
             return false;
         }
-        if (obj instanceof CacheKey) {
-            CacheKey co = (CacheKey)obj;
+        if (obj instanceof CacheKeyClass) {
+            CacheKeyClass co = (CacheKeyClass)obj;
             return Objects.equals(co.getGroup(), group)
                     && Objects.equals(co.getDataId(), dataId);
         }

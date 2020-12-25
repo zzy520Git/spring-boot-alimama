@@ -5,6 +5,7 @@ import com.github.benmanes.caffeine.cache.Expiry;
 import com.github.benmanes.caffeine.cache.LoadingCache;
 import lombok.extern.slf4j.Slf4j;
 
+import javax.annotation.PostConstruct;
 import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.ConcurrentMap;
@@ -21,15 +22,13 @@ public class CaffeCache {
     public static final String NULL = "_null_";
 
     public static String get(CacheKey key) {
-        return CAFFE_CACHE.get(key);
+        String value = CAFFE_CACHE.get(key);
+        return Objects.equals(value, NULL) ? null : value;
     }
 
-    public static void main(String[] args) throws Exception {
-
-        String sa = get(CacheKeyEnum.A);
-        System.out.println(sa);
-        TimeUnit.SECONDS.sleep(1);
-
+    @PostConstruct
+    private void init() {
+        //@Component
     }
 
     private static final LoadingCache<CacheKey, String> CAFFE_CACHE =
