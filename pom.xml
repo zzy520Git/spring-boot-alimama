@@ -88,6 +88,12 @@
             <version>${tair-spring-boot-starter.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.alibaba.csp</groupId>
+            <artifactId>sentinel-core</artifactId>
+            <version>1.8.0</version>
+        </dependency>
+
         <!-- 自动配置代码提示 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
